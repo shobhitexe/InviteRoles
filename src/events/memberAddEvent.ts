@@ -12,7 +12,7 @@ export async function handleMemberAddEvent(member: GuildMember) {
       return;
     }
 
-    const currentInvites = await member.guild.invites.fetch();
+    const currentInvites = await member.guild.invites.fetch({ cache: false });
 
     invitesMap.set(member.guild.id, currentInvites);
 
