@@ -12,6 +12,8 @@ export async function handleMemberAddEvent(member: GuildMember) {
       return;
     }
 
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const currentInvites = await member.guild.invites.fetch({ cache: false });
 
     invitesMap.set(member.guild.id, currentInvites);
