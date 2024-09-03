@@ -22,7 +22,7 @@ export async function handleMemberAddEvent(member: GuildMember) {
         savedInvite &&
         invite.uses &&
         savedInvite.uses &&
-        invite.uses >= savedInvite.uses
+        invite.uses > savedInvite.uses
       );
     });
 
@@ -37,7 +37,7 @@ export async function handleMemberAddEvent(member: GuildMember) {
           (invite) => invite.inviter?.id === usedInvite.inviter?.id
         );
 
-        if (inviterInvites.size >= 1) {
+        if (inviterInvites.size >= 5) {
           const role = member.guild.roles.cache.get(enviroment.ROLE_ID);
           if (role) {
             await inviter.roles.add(role);
